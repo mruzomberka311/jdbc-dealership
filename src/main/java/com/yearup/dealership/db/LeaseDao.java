@@ -15,6 +15,8 @@ public class LeaseDao {
     }
 
     public void addLeaseContract(LeaseContract leaseContract) {
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement()
         // TODO: Implement the logic to add a lease contract
     }
 }

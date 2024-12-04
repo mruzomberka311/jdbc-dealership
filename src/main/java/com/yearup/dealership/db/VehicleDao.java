@@ -15,10 +15,26 @@ public class VehicleDao {
     }
 
     public void addVehicle(Vehicle vehicle) {
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO vehicles (vehicle) VALUES (?)");
+        ){
+
+        }catch (Exception e){
+            System.out.println("An error has occurred");
+            e.printStackTrace();
+        }
         // TODO: Implement the logic to add a vehicle
     }
 
     public void removeVehicle(String VIN) {
+        try(Connection connection = dataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("");
+        ){
+            
+        }catch (Exception e){
+            System.out.println("An error has occurred");
+            e.printStackTrace();
+        }
         // TODO: Implement the logic to remove a vehicle
     }
 
