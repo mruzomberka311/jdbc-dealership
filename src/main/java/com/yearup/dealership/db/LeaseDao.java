@@ -16,7 +16,13 @@ public class LeaseDao {
 
     public void addLeaseContract(LeaseContract leaseContract) {
         try (Connection connection = dataSource.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement()
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO lease_contracts (contract_id, VIN,lease_date, lease_end, monthly_payment) VALUES (?)");){
+
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            System.out.println("An error has occurred");
+            e.printStackTrace();
+        }
         // TODO: Implement the logic to add a lease contract
     }
 }

@@ -15,6 +15,15 @@ public class SalesDao {
     }
 
     public void addSalesContract(SalesContract salesContract) {
+        try (Connection connection = dataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO sales_contracts VALUES (contract_id, VIN, sale_date, price");)
+        {
+            preparedStatement.executeUpdate();
+
+        }catch (Exception e){
+            System.out.println("An error has occurred");
+            e.printStackTrace();
+        }
         // TODO: Implement the logic to add a sales contract
     }
 }
